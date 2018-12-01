@@ -39,8 +39,9 @@ class RegisterForm extends Form {
       auth.loginWithJwt(response.headers["Authorization"]);
       window.location = "/";
     } catch (ex) {
+      console.log(ex.response);
       if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.erros };
+        const errors = { ...this.state.errors };
         errors.username = ex.response.data;
         this.setState({ errors });
       }
