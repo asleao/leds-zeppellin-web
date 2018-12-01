@@ -30,7 +30,7 @@ class RegisterForm extends Form {
     password_confirmation: Joi.string()
       .min(5)
       .required()
-      .label("Confirm password")
+      .label("Confirme o password")
   };
 
   doSubmit = async () => {
@@ -57,7 +57,7 @@ class RegisterForm extends Form {
           {this.renderInput("password", "Password", "password")}
           {this.renderInput(
             "password_confirmation",
-            "Confirm password",
+            "Confirme o password",
             "password"
           )}
           {this.renderButton("Register")}

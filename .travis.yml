@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - stable
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: cvdjrdYQOv8HATI4H7JmjZJXgPdxvZEY0VeW/sw5KjOUN9GG3s42NP16tmA3q6aBH7ZaIcnIzBRfR173X7hlJNMrGKFnqgCRctvDh6PkQfjrg7+ArKfJltHGhb2dmHqGZU3+Y1nY4fuIk9kB6wzTYpHFDFXYCvVRB8jjoaXoKg3PyLaXJ3VEeO7vdTpb/w8PujClWYP7WWRaHLlaXDbDrbp/zbsVrdFA4a3ipIkLdHcT8BvGdgQ5OSsBOHUsIGSlRW9rgoz/alwRuYRdb7dieL48Eq8dT91VhOFmvbL9UJ5344FhdgiIjEyILOc9PG4IUnKc2w6SjMPe0NaKDP076g741YPLuH5Hg2tr8PlkPNIeqZFab0BHiyFTGZBq2FO4kGQXk3EEJBF0HNYjTRYf4ZXQwXk+Y1laK56wlBQNptK/2ovVoS45h14k8PrOSXGcyv/2hHBYJy0L2vwfHmDnBB5LNlcMJhm4sTlpF6iye6mUgfbpKKx3EQdahFZ28cknubW5w2A/IB3P8aQK+SOzTKh1+WEk5D6cEoLYTho1xeu+UN7u+70Q2zXdiROJ6j+/xN98bQI2RLIRax/dIuBtJryKbnDJRNoZGbPkmSmEeGvX66gADCrqp6SR0kfdFhm9ASShzJi+MtD53bJ62IQMd96EOGXo7VBqKy2KYyb2m6k=
+  app: leds-zeppelin-web
+  on:
+    repo: asleao/leds-zeppellin-web
