@@ -42,7 +42,15 @@ class RegisterForm extends Form {
       console.log(ex.response);
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
-        errors.email = ex.response.data["email"];
+
+        if (ex.response.data["username"]) {
+          errors.username = ex.response.data["username"];
+        }
+
+        if (ex.response.data["email"]) {
+          errors.email = ex.response.data["email"];
+        }
+
         this.setState({ errors });
       }
     }
