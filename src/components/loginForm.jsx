@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import auth from "../services/authService";
@@ -30,7 +31,7 @@ class LoginForm extends Form {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
         //TODO: Refatorar para buscar qualquer tipo de retorno
-        errors.username = ex.response.data.non_field_errors;
+        toast.error(ex.response.data.non_field_errors[0]);
         this.setState({ errors });
       }
     }
