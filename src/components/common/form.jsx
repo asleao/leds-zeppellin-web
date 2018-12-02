@@ -15,7 +15,6 @@ class Form extends Component {
 
     const errors = {};
     for (let item of error.details) errors[item.path[0]] = item.message;
-    console.log(errors);
     return errors;
   };
   validateProperty = ({ name, value }) => {
@@ -54,7 +53,6 @@ class Form extends Component {
 
   renderInput(name, label, type = "text") {
     const { data, errors } = this.state;
-
     return (
       <Input
         type={type}

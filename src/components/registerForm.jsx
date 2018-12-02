@@ -36,13 +36,13 @@ class RegisterForm extends Form {
   doSubmit = async () => {
     try {
       const response = await userService.register(this.state.data);
-      auth.loginWithJwt(response.headers["Authorization"]);
+      auth.loginWithJwt(response.data["token"]);
       window.location = "/";
     } catch (ex) {
       console.log(ex.response);
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
-        errors.username = ex.response.data;
+        errors.email = ex.response.data["email"];
         this.setState({ errors });
       }
     }
