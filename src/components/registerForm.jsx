@@ -39,10 +39,9 @@ class RegisterForm extends Form {
       auth.loginWithJwt(response.data["token"]);
       window.location = "/";
     } catch (ex) {
-      console.log(ex.response);
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
-
+        //TODO refatorar
         if (ex.response.data["username"]) {
           errors.username = ex.response.data["username"];
         }
@@ -51,6 +50,18 @@ class RegisterForm extends Form {
           errors.email = ex.response.data["email"];
         }
 
+        if (ex.response.data["password1"]) {
+          errors.password = ex.response.data["password1"];
+        }
+
+        if (ex.response.data["password2"]) {
+          errors.password_confirmation = ex.response.data["password2"];
+        }
+
+        if (ex.response.data["non_field_errors"]) {
+          errors.password = ex.response.data["non_field_errors"];
+          errors.password_confirmation = ex.response.data["non_field_errors"];
+        }
         this.setState({ errors });
       }
     }
