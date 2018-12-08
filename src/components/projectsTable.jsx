@@ -11,7 +11,9 @@ class ProjectsTable extends Component {
       content: project => (
         <Link to={`/projects/${project.id}`}>{project.name}</Link>
       )
-    }
+    },
+    { path: "owner.username", label: "Gestor" },
+    { path: "language.name", label: "Linguagem" }
   ];
 
   deleteColumn = {
