@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { paginate } from "../utils/paginate";
 import { getProjects, deleteProject } from "../services/projectService";
 import Pagination from "./common/pagination";
@@ -79,9 +80,32 @@ class Projects extends Component {
   render() {
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
     const { totalCount, data: projects } = this.getPagedData();
+    const { user } = this.props;
     return (
       <React.Fragment>
-        <SearchBox value={searchQuery} onChange={this.handleSearch} />
+        {!user && (
+          <React.Fragment>
+            <SearchBox value={searchQuery} onChange={this.handleSearch} />
+          </React.Fragment>
+        )}
+        {user && (
+          <React.Fragment>
+            <div className="row">
+              <div className="col-10">
+                <SearchBox value={searchQuery} onChange={this.handleSearch} />
+              </div>
+              <div className="col-2">
+                <Link
+                  to="/projects/new"
+                  className="form-control btn btn-primary"
+                >
+                  Novo Projeto
+                </Link>
+              </div>
+            </div>
+          </React.Fragment>
+        )}
+
         <ProjectsTable
           sortColumn={sortColumn}
           projects={projects}

@@ -50,8 +50,8 @@ class RegisterForm extends Form {
           errors.email = ex.response.data["email"];
         }
 
-        if (ex.response.data["password1"]) {
-          errors.password = ex.response.data["password1"];
+        if (ex.response.data["password"]) {
+          errors.password = ex.response.data["password"];
         }
 
         if (ex.response.data["password2"]) {
