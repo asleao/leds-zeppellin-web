@@ -1,7 +1,9 @@
 import React from "react";
+import { toast } from "react-toastify";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { getLanguages } from "../services/languageService";
+import auth from "../services/authService";
 
 class ProjectForm extends Form {
   state = {
@@ -25,7 +27,18 @@ class ProjectForm extends Form {
   }
 
   async componentDidMount() {
-    await this.populateLanguages();
+    try {
+      await this.populateLanguages();
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        toast.error(ex.response.data.non_field_errors[0]);
+        this.setState({ errors });
+      }
+      if (ex.response && ex.response.status === 401) {
+        await auth.loginRefresh(auth.getJwtRefresh());
+      }
+    }
   }
 
   render() {
