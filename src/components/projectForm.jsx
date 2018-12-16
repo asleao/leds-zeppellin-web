@@ -1,10 +1,12 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
+import { getLanguages } from "../services/languageService";
 
 class ProjectForm extends Form {
   state = {
-    data: { name: "", tools: "", team: "", owner: "", language: "" },
+    data: { name: "", languageId: "" },
+    languages: [],
     errors: {}
   };
   schema = {
@@ -12,24 +14,27 @@ class ProjectForm extends Form {
     name: Joi.string()
       .label("Nome")
       .required(),
-    toolsId: Joi.string()
-      .label("Ferramenta")
-      .required(),
-    teamId: Joi.string()
-      .label("Equipe")
-      .required(),
-    owner: Joi.string()
-      .min(0)
-      .max(10)
-      .label("Rate")
+    languageId: Joi.string()
+      .label("Linguagem")
       .required()
   };
+
+  async populateLanguages() {
+    const { data: languages } = await getLanguages();
+    this.setState({ languages });
+  }
+
+  async componentDidMount() {
+    await this.populateLanguages();
+  }
+
   render() {
     return (
       <div>
         <h1>Novo Projeto</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("name", "Nome")}
+          {this.renderSelect("languageId", "Linguagem", this.state.languages)}
           {this.renderButton("Salvar")}
         </form>
       </div>
