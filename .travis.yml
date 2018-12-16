@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-  - stable
+- stable
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm run build
+- npm run build
 deploy:
   provider: heroku
   api_key:
-    secure: cvdjrdYQOv8HATI4H7JmjZJXgPdxvZEY0VeW/sw5KjOUN9GG3s42NP16tmA3q6aBH7ZaIcnIzBRfR173X7hlJNMrGKFnqgCRctvDh6PkQfjrg7+ArKfJltHGhb2dmHqGZU3+Y1nY4fuIk9kB6wzTYpHFDFXYCvVRB8jjoaXoKg3PyLaXJ3VEeO7vdTpb/w8PujClWYP7WWRaHLlaXDbDrbp/zbsVrdFA4a3ipIkLdHcT8BvGdgQ5OSsBOHUsIGSlRW9rgoz/alwRuYRdb7dieL48Eq8dT91VhOFmvbL9UJ5344FhdgiIjEyILOc9PG4IUnKc2w6SjMPe0NaKDP076g741YPLuH5Hg2tr8PlkPNIeqZFab0BHiyFTGZBq2FO4kGQXk3EEJBF0HNYjTRYf4ZXQwXk+Y1laK56wlBQNptK/2ovVoS45h14k8PrOSXGcyv/2hHBYJy0L2vwfHmDnBB5LNlcMJhm4sTlpF6iye6mUgfbpKKx3EQdahFZ28cknubW5w2A/IB3P8aQK+SOzTKh1+WEk5D6cEoLYTho1xeu+UN7u+70Q2zXdiROJ6j+/xN98bQI2RLIRax/dIuBtJryKbnDJRNoZGbPkmSmEeGvX66gADCrqp6SR0kfdFhm9ASShzJi+MtD53bJ62IQMd96EOGXo7VBqKy2KYyb2m6k=
+    secure: AXQzymAbbF2+3gfglliSGOPsDkPg4f5URZPsqZ8F6sDaeM5/Joipcat1eamr/KqzVetuTLo0g7cpVDq2ebks6o0/Xh2c+9maFSiu3ZoxLJOp6xWFMURJ73Sh/8gRgkMbKB7DpIrs9rRfCrW79YdUTGQr6pBGH7HG+K2gV4F2ZI8jU4JkULqseH3uwec1d3bvK0C/cxvsDGXeEtOw2rY/NydKumxW1naZGK9a5XopyF1B75PKkHB0D7ddE2d/finHU/QyM1xhhhmci/kP3eE7bAxIbc/6uwbq3J1YPITGdx3TKl+uHGowtDmrazCaDIfOJvDB1ofY4F/EL7tOoYWsQjnfKIvGd1kIc7B24PqBI9x/ymPLyt6wPF9rjHT+3isMNo6tm4ExYZrAyTsy0Y504XMmdFoguyU3kHDDkI3OHapRwP9H/v/FvkohuPHwpgsD5c/lb/05bvbIOvceOOyLoY7Lw702kLCJ3FfHr+IMQ/SbNFfhfi0+LCvQuGR9mgiyWEhmWWQ8hIF9VRQhKAKTf6yzpE4vsVekScIA72BSqGeIt9+luDybia+RrBjCr+ElrX5Uurumn4Jg+l4NLyg92HqGoBbutuLX8rSJAIFtFoa3mrKN1Jgh32xhGBPdxK0AQKGnur+ImMv3Bag8F2a2BVzJihZY7w/y1YNA7NYsAek=
   app: leds-zeppelin-web
   on:
     repo: asleao/leds-zeppellin-web
